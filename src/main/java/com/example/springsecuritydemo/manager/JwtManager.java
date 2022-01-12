@@ -1,6 +1,5 @@
 package com.example.springsecuritydemo.manager;
 
-import com.example.springsecuritydemo.domain.Role;
 import com.example.springsecuritydemo.domain.User;
 import com.example.springsecuritydemo.dto.TokenDTO;
 import com.example.springsecuritydemo.repo.UserRepository;
