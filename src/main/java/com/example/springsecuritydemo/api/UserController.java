@@ -2,6 +2,7 @@ package com.example.springsecuritydemo.api;
 
 import com.example.springsecuritydemo.domain.Role;
 import com.example.springsecuritydemo.domain.User;
+import com.example.springsecuritydemo.dto.TokenDTO;
 import com.example.springsecuritydemo.service.UserService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,11 @@ import java.util.List;
 @RequestMapping("/api")
 public class UserController {
     private final UserService userService;
+
+    @GetMapping(value = "/testToken")
+    public ResponseEntity<TokenDTO> managementToken(@RequestParam String username, @RequestParam String password) {
+        return ResponseEntity.ok().body(userService.createToken(username, password));
+    }
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers() {
